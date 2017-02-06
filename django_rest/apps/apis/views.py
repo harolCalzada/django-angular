@@ -29,4 +29,5 @@ def restaurante_list(request):
     if request.method == 'GET':
         restaurantes = Restaurante.objects.all()
         serializer = RestaurantSerializer(restaurantes, many=True)
-        return JSONResponse(serializer.data)
+        result = {'status': 'success', 'data': serializer.data}
+        return JSONResponse(result)
