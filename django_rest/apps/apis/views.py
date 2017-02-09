@@ -1,3 +1,4 @@
+import time
 from django.shortcuts import render
 # from django.http import JsonResponse
 from django.http import HttpResponse
@@ -26,6 +27,7 @@ def home(request):
 def restaurante_list(request):
     print ('restaurante list api')
     serializer = None
+    time.sleep(5)
     if request.method == 'GET':
         restaurantes = Restaurante.objects.all()
         serializer = RestaurantSerializer(restaurantes, many=True)
