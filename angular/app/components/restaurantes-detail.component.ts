@@ -15,10 +15,37 @@ import {Restaurante} from "../models/restaurante";
 
 
 export class RestaurantesDetailComponent implements OnInit{
+    public restaurante: Restaurante
+    public errorMessage: string;
+    public status: string;
 
-ngOnInit(){
+    constructor(
+        private _restauranteService: RestauranteService,
+        private _routeParams: RouteParams
+    ){}
 
+    ngOnInit(){
         console.log("hola");
+        this.getRestaurante();
+    }
+
+    getRestaurante(){
+        let id = this._routeParams.get("id");
+        console.log('GET RESTAURANTE ID', id)
+        this._restauranteService.getRestaurante(id).subscribe(
+            response => {
+                    this.restaurante = response.data
+                    this.status = response.status;
+                    if (this.status != "success"){
+                            alert("Error en el servidor");
+                    }
+            }, error => {
+                    this.errorMessage = <any>error;
+                    if(this.errorMessage !== null){
+                        console.log('Error', this.errorMessage);
+                    }
+            }
+        );
     }
 
 

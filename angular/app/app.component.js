@@ -36,10 +36,9 @@ System.register(["angular2/core", "angular2/router", "./components/restaurantes-
                         selector: "mi-app",
                         templateUrl: "app/view/home.html",
                         directives: [restaurantes_list_component_1.RestaurantesListComponent, router_1.ROUTER_DIRECTIVES],
-                        styleUrls: ["../assets/css/styles.css"]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: "Home", component: restaurantes_list_component_1.RestaurantesListComponent, useAsDefault: true },
+                        { path: "/", name: "Home", component: restaurantes_list_component_1.RestaurantesListComponent, useAsDefault: true },
                         { path: "/restaurante/:id", name: "Restaurante", component: restaurantes_detail_component_1.RestaurantesDetailComponent }
                     ]), 
                     __metadata('design:paramtypes', [])

@@ -9,11 +9,10 @@ import {RestaurantesDetailComponent} from "./components/restaurantes-detail.comp
     selector: "mi-app",
     templateUrl: "app/view/home.html",
     directives: [RestaurantesListComponent, ROUTER_DIRECTIVES],
-    styleUrls: ["../assets/css/styles.css"]
 })
 
 @RouteConfig([
-    {path:  '/', name:"Home", component: RestaurantesListComponent, useAsDefault: true},
+    {path:  "/", name: "Home", component: RestaurantesListComponent, useAsDefault: true},
     {path:  "/restaurante/:id", name:"Restaurante", component: RestaurantesDetailComponent}
 
 ])
@@ -22,6 +21,6 @@ export class AppComponent{
     public titulo:string = "Restaurantes";
 
 
-    }
+}
 
 
